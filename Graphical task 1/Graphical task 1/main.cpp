@@ -156,11 +156,11 @@ int main()
        }
 
 
-        for (int i = ((M / 100) * 45); i < M - ((M / 100) * 45); ++i) {
+        for (int i = ((M / 100) * 40); i < M - ((M / 100) * 40); ++i) {
             average += dur_arr[i];
         }
         
-        average = average / ((M / 100) * 10);
+        average = average / ((M / 100) * 20);
 
         cout << "\nВремя:" << average << "сек.\n";
 
