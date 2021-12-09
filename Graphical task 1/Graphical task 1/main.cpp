@@ -70,7 +70,7 @@ int main()
     while (true) {
 
         cout.setf(ios::fixed);
-        cout.precision(8);
+        cout.precision(7);
 
         
         int size;
@@ -88,12 +88,22 @@ int main()
         }
         
         char ans;
-        cout<<"\nКакую сортировку вы хотите использовать гномью или пирамидальную?(g/h)";
+        cout<< endl <<"Какую сортировку вы хотите использовать гномью или пирамидальную?(g/h)";
         cin>>ans;
         char gnome;
         gnome = 'g';
         char heap;
         heap = 'h';
+        
+        
+        int prep_arr[100];
+            for (int i = 0; i < size; ++i) {
+                prep_arr[i] = arr[i];
+                    // cout << setw(3) << arr[i];
+        }
+        
+        
+        
         double dur_arr[M];
         double average = 0;
         if (ans == gnome) {
@@ -109,11 +119,17 @@ int main()
 
                 dur_arr[i] = duration.count();
 
-                cout << "\nСортированный массив:" << endl;
+                cout << endl <<"Сортированный массив:" << endl;
                 for (int i = 0; i < size; i++) {
                     cout << setw(3) << arr[i];
                 }
-
+                
+                cout << endl;
+                
+                for (int i = 0; i < size; ++i) {
+                    arr[i] = prep_arr[i];
+                    cout << setw(3) << arr[i];
+                }
 
             }
         }
@@ -131,17 +147,22 @@ int main()
 
                 dur_arr[i] = duration.count();
 
-                cout << "\nСортированный массив:" << endl;
+                cout << endl << "Сортированный массив:" << endl;
                 for (int i = 0; i < size; i++) {
                     cout << setw(3) << arr[i];
                 }
-
+                
+                cout << endl;
+                for (int i = 0; i < size; ++i) {
+                    arr[i] = prep_arr[i];
+                    cout << setw(3) << arr[i];
+                }
 
             }
         }
 
         for (int i = 0; i < M; i++) {
-            cout << "\nВремя выполнения " << i + 1 << " = " << dur_arr[i] << "сек.\n";
+            cout << endl <<"Время выполнения " << i + 1 << " = " << dur_arr[i] << "сек." << endl;
         }
 
         double temp = 0;
@@ -162,7 +183,7 @@ int main()
         
         average = average / ((M / 100) * 20);
 
-        cout << "\nВремя:" << average << "сек.\n";
+        cout << endl <<"Время:" << average << "сек." << endl;
 
 
     }
